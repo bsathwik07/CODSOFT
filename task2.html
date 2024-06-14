@@ -1,43 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator in HTML CSS & JavaScript</title>
-    <link rel="stylesheet" href="task3.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CODSOFT | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 80px;
+            background-color: rgb(18, 18, 38);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 23px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul li a:hover {
+            color: rgb(153, 153, 226);
+            font-size: 1.02rem;
+        }
+
+        main hr {
+            border: 0;
+            background: #9c97f1;
+            height: 1.2px;
+            margin: 60px 84px;
+        }
+
+        .left {
+            font-size: 1.5rem;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 130px 0;
+        }
+
+        .firstSection>div {
+            width: 30%;
+        }
+
+        .leftSection {
+            width: 50%;
+            font-size: 3rem;
+        }
+
+        .leftSection .buttons {
+            padding: 50px 0;
+        }
+
+        .leftSection .btn {
+            padding: 12px;
+            background-color: #1e2167;
+            color: white;
+            border: 2px solid white;
+            border-radius: 6px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .rightSection img {
+            width: 80%;
+        }
+
+        .purple {
+            color: rgb(170, 107, 229);
+        }
+
+        .text-gray {
+            color: gray;
+        }
+
+        #element {
+            color: rgb(170, 107, 228);
+        }
+
+        .secondSection {
+            max-width: 80vw;
+            margin: auto;
+            height: 80vh;
+        }
+
+        .secondSection h1 {
+            font-size: 1.9rem;
+        }
+
+        .secondSection .box {
+            background-color: white;
+            width: 78vw;
+            height: 2px;
+            margin: 56px;
+            display: flex;
+        }
+
+        .secondSection .vertical {
+            height: 93px;
+            width: 1px;
+            background-color: white;
+            margin: 0 120px;
+        }
+
+        .image-top {
+            width: 23px;
+            position: relative;
+            top: -32px;
+            left: -9px;
+        }
+
+        .vertical-title {
+            position: relative;
+            top: 75px;
+            width: 150px;
+            font-size: 14px;
+        }
+
+        .vertical-desc {
+            position: relative;
+            top: 86px;
+            color: gray;
+            width: 150px;
+            font-size: 10px;
+        }
+
+        footer {
+            background-color: #0e0e1a;
+        }
+
+        .footer {
+            display: flex;
+            padding: 23px 122px;
+            justify-content: space-evenly;
+        }
+
+        .footer ul {
+            list-style: none;
+        }
+
+        .footer>div {
+            width: 223px;
+        }
+
+        footer .footer-rights {
+            text-align: center;
+            color: gray;
+            padding: 12px 0;
+        }
+
+        .footer-second ul,
+        .footer-third ul,
+        .footer-fourth ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .footer-second li,
+        .footer-third li,
+        .footer-fourth li {
+            margin-left: 20px;
+            text-indent: -20px;
+            position: relative;
+        }
+
+        .footer-second li::before,
+        .footer-third li::before,
+        .footer-fourth li::before {
+            content: "\2022";
+            position: absolute;
+            left: -20px;
+        }
+
+        .projectSection {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .project {
+            background-color: #1e2167;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        .project h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .project p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .project a {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #9c97f1;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .project a:hover {
+            background-color: rgb(153, 153, 226);
+        }
+        .contactSection {
+            background-color: rgb(18, 18, 38);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .contactSection h2 {
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .contactForm {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .formGroup {
+            margin-bottom: 20px;
+        }
+
+        .formGroup label {
+            display: block;
+            margin-bottom: 8px;
+            color: #9c97f1;
+            font-size: 1rem;
+        }
+
+        .formGroup input,
+        .formGroup textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #9c97f1;
+            background-color: transparent;
+            color: white;
+        }
+
+        .formGroup textarea {
+            min-height: 150px;
+        }
+
+        .formGroup input[type="submit"] {
+            background-color: #9c97f1;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .formGroup input[type="submit"]:hover {
+            background-color: rgb(153, 153, 226);
+        }
+
+    </style>
 </head>
+
 <body>
-    <div class="container">
-        <input type="text" class="display" />
+    <header>
+        <nav>
+            <div class="left">Sathwik's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/">About</a></li>
+                    <li><a href="/">Services</a></li>
+                    <li><a href="/">Projects</a></li>
+                    <li><a href="#contact">Contact Me</a></li> <!-- Added Contact Me link -->
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-        <div class="buttons">
-            <button data-value="AC">AC</button>
-            <button data-value="DEL">DEL</button>
-            <button data-value="%">%</button>
-            <button data-value="/">/</button>
+    <main>
+        <section class="firstSection">
+            <div class="leftSection">
+                Hi, My name is <span class="purple">B.Sathwik</span>
+                <div>and I am a passionate</div>
+                <span id="element"></span>
+                <div class="buttons">
+                    <a href="https://drive.google.com/file/d/11SZYLcThDZbdckSTcU6sPe42jY9_AkAT/view?usp=sharing"
+                        class="btn">Download Resume</a>
+                    <a href="https://github.com/bsathwik07/CODSOFT.git" class="btn">Visit Github</a>
+                </div>
+            </div>
+            <div class="rightSection">
+                <img src="bg.png">
+            </div>
+        </section>
 
-            <button data-value="7">7</button>
-            <button data-value="8">8</button>
-            <button data-value="9">9</button>
-            <button data-value="*">*</button>
+        <hr style="border: 0; background: #9c97f1; height: 1.2px; margin: 40px 84px;">
 
-            <button data-value="4">4</button>
-            <button data-value="5">5</button>
-            <button data-value="6">6</button>
-            <button data-value="-">-</button>
+        <section class="secondSection">
+            <span class="text-gray">What I have done so far</span>
+            <h1>Work Experience</h1>
+            <div class="box">
+                <div class="vertical">
+                    <img class="image-top" src="developer.png" alt="">
+                    <div class="vertical-title">
+                        python (2022-2022)
+                    </div>
+                    <div class="vertical-desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, deserunt ducimus fuga beata
+                        e delectus voluptates ullam vitae asperiores adipisci, nulla voluptate rerum perspiciatis!
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="youtube.png" alt="">
+                    <div class="vertical-title">
+                        HTML and CSS - Youtube(2022-2023)
+                    </div>
+                    <div class="vertical-desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, deserunt ducimus fuga beatae
+                        delectus voluptates ullam vitae asperiores adipisci, nulla voluptate rerum pers
+                        HTML Developer - Instagram (2023-2023)
+                    </div>
+                    <div class="vertical-desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, deserunt ducimus fuga beatae
+                        delectus voluptates ullam vitae asperiores adipisci, nulla voluptate rerum perspiciatis!
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="facebook.png" alt="">
+                    <div class="vertical-title">
+                        HTML Developer - Facebook(2023-20124)
+                    </div>
+                    <div class="vertical-desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, deserunt ducimus fuga beatae
+                        delectus voluptates ullam vitae asperiores adipisci, nulla voluptate rerum perspiciatis!
+                    </div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="1760714-200.png" alt="">
+                    <div class="vertical-title">
+                        Software Developer - web application(2024)
+                    </div>
+                    <div class="vertical-desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, deserunt ducimus fuga beatae
+                        delectus voluptates ullam vitae asperiores adipisci, nulla voluptate rerum perspiciatis!
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <button data-value="1">1</button>
-            <button data-value="2">2</button>
-            <button data-value="3">3</button>
-            <button data-value="+">+</button>
+        <section class="projectSection">
+            <h2>Projects</h2>
+            <div class="projects">
+                <div class="project">
+                    <h3>Survey Form</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, magni iure
+                        deserunt labore deleniti officiis a, ducimus recusandae eaque inventore est laudantium aut quod accusamus. </p>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Tribute Page</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolores quidem animi delectus nemo inventore repudiandae incidunt exercitationem quasi nostrum adipisci.</p>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Technical Documentation Page</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolores quidem animi delectus nemo inventore repudiandae incidunt exercitationem quasi nostrum adipisci.</p>
+                    <a href="#">View Project</a>
+                </div>
+                <div class="project">
+                    <h3>Product Landing Page</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Dolores quidem animi delectus nemo inventore repudiandae incidunt exercitationem quasi nostrum adipisci.</p>
+                    <a href="#">View Project</a>
+                </div>
+            </div>
+        </section>
 
-            <button data-value="0">0</button>
-            <button data-value="00">00</button>
-            <button data-value=".">.</button>
-            <button data-value="=">=</button>
+        <section class="contactSection" id="contact">
+            <h2>Contact Me</h2>
+            <div class="contactForm">
+                <form action="#" method="POST">
+                    <div class="formGroup">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="formGroup">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="formGroup">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div class="formGroup">
+                        <input type="submit" value="Send Message">
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer">
+            <div class="footer-first">
+                <h3>Sathwik's Portfolio</h3>
+                <h6>email : sathwik2xx8@gmail.com</h6>
+                
+            </div>
+            <div class="footer-second">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="footer-third">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+            <div class="footer-fourth">
+                <ul>
+                    <li>Home</li>
+                    <li>About</li>
+                    <li>Services</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <script src="task3.js"></script>
+        <div class="footer-rights">
+            Copyright &copy; sathwikportfolio.com | All rights reserved
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'Software Developer', 'Web Designer'],
+            typeSpeed: 50,
+        });
+    </script>
 </body>
+
 </html>
+
+
